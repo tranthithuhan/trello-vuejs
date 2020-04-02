@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import getters from './getters';
+import mutations from './mutations';
 
 Vue.use(Vuex);
 
@@ -32,20 +33,20 @@ export default new Vuex.Store({
             title: 'To buy',
             cards: [
               {
-                id: "1",
-                title: "books"
-              }
-            ]
+                id: '1',
+                title: 'books',
+              },
+            ],
           },
           {
             id: '3',
             title: 'To buy',
             cards: [
               {
-                id: "1",
-                title: "books"
-              }
-            ]
+                id: '1',
+                title: 'books',
+              },
+            ],
           },
         ],
       },
@@ -76,4 +77,5 @@ export default new Vuex.Store({
     ],
   },
   getters,
+  mutations,
 });

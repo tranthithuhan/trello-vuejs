@@ -1,6 +1,7 @@
 <template>
   <div id="board" class="board-card">
     <h2 class="board-title">{{board.title}}</h2>
+    <add-button/>
     <b-card-group
       deck
       class="board-list d-flex flex-row justify-content-center"
@@ -28,10 +29,11 @@
 
 import { mapGetters } from 'vuex';
 import BoardCard from './BoardCard';
+import AddButton from './AddButton';
 
 export default {
   name: 'Board',
-  components: { BoardCard },
+  components: { AddButton, BoardCard },
   props: {
     id: String,
   },
@@ -46,6 +48,8 @@ export default {
 <style scoped>
   .board-item {
     max-width: 30%;
+    flex-basis: 30%;
+    margin: 10px;
   }
 
   .board-list-card {
