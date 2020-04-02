@@ -1,12 +1,12 @@
 import { shallowMount } from '@vue/test-utils';
-import Toolbar from '../../../src/components/Toolbar.vue';
+import Toolbar from '../../../src/components/Toolbar';
 
 
 describe('Toolbar.vue', () => {
   const wrapper = shallowMount(Toolbar);
 
   it('should render the app title correctly', () => {
-    expect(wrapper.find(".app-title").text())
+    expect(wrapper.find('.app-title').text())
       .toEqual('Task manager');
   });
 });
