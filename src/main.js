@@ -16,7 +16,8 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 Vue.config.productionTip = false;
 Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
-Vue.use(Vuelidate)
+Vue.use(Vuelidate);
+
 
 /* eslint-disable no-new */
 new Vue({

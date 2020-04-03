@@ -1,5 +1,3 @@
 export default {
-  getBoardById: state => boardId => {
-    return state.boards.find(board => board.id === boardId);
-  },
+  getBoardById: state => boardId => state.boards.find(board => board.id === boardId),
 };

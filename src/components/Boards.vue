@@ -21,7 +21,7 @@ import AddButton from './AddButton';
 
 export default {
   name: 'Boards',
-  components: { BoardCard, AddBoardModal, AddButton},
+  components: { BoardCard, AddBoardModal, AddButton },
   computed: {
     boards() {
       return this.$store.state.boards;

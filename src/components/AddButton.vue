@@ -10,7 +10,7 @@ export default {
   methods: {
     showModal() {
       this.$root.$emit('bv::show::modal', this.$props.modalId, '#btnShow');
-    }
+    },
   },
 };
 </script>

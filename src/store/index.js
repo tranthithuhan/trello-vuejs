@@ -55,38 +55,42 @@ export const initialState = {
       title: 'Travel Packing Checklist',
       img: 'https://picsum.photos/600/300/?image=24',
       description: 'Some quick example text to build on the card title.',
+      list: [],
     },
     {
       id: '3',
       title: 'To do',
       img: 'https://picsum.photos/600/300/?image=1',
       description: 'Some quick example text to build on the card title.',
+      list: [],
     },
     {
       id: '4',
       title: 'To do',
       img: 'https://picsum.photos/600/300/?image=2',
       description: 'Some quick example text to build on the card title.',
+      list: [],
     },
     {
       id: '5',
       title: 'To do',
       img: 'https://picsum.photos/600/300/?image=26',
       description: 'Some quick example text to build on the card title.',
+      list: [],
     },
   ],
 };
 
-let state = {}
+let state = {};
 if (localStorage.getItem('trello-vuejs')) {
   state = JSON.parse(localStorage.getItem('trello-vuejs'));
 } else {
   localStorage.setItem('trello-vuejs', JSON.stringify(initialState));
-  state = initialState
+  state = initialState;
 }
 
 export default new Vuex.Store({
-  state: state,
+  state,
   getters,
   mutations,
   actions,
