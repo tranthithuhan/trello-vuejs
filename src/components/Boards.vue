@@ -9,15 +9,19 @@
         v-bind:id="card.id"
       />
     </b-card-group>
+    <add-button modalId="modal-add-board"/>
+    <add-board-modal/>
   </div>
 </template>
 
 <script>
 import BoardCard from './BoardCard';
+import AddBoardModal from './AddBoardModal';
+import AddButton from './AddButton';
 
 export default {
   name: 'Boards',
-  components: { BoardCard },
+  components: { BoardCard, AddBoardModal, AddButton},
   computed: {
     boards() {
       return this.$store.state.boards;

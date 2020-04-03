@@ -1,14 +1,14 @@
 <template>
   <div>
     <b-modal
-      id="modal-add-board"
+      id="modal-add-list"
       ref="modal"
-      title="New board"
+      title="New List"
       @show="resetModal"
       @hidden="resetModal"
       @ok="handleOk"
     >
-      <form ref="new-board-form" @submit.stop.prevent="handleSubmit">
+      <form ref="new-list-form" @submit.stop.prevent="handleSubmit">
         <b-form-input
           id="title-input"
           placeholder="Name*"
@@ -17,16 +17,7 @@
           :class="{ 'hasError': $v.title.$error, 'mb-4': true }"
         />
         <div class="error-label" v-if="$v.title.$error">Name is required</div>
-
-        <b-form-input
-          id="description-input"
-          placeholder="Description"
-          v-model="description"
-          :state="descriptionState"
-        />
       </form>
-
-      <p class="error-label" v-if="submitStatus === 'ERROR'">Please fill the form correctly.</p>
     </b-modal>
   </div>
 </template>
@@ -35,11 +26,10 @@
 import { required, minLength } from 'vuelidate/lib/validators';
 
 export default {
-  name: 'AddBoardModal',
+  name: 'AddListModal',
   data() {
     return {
       title: '',
-      description: '',
       submitStatus: null,
     };
   },
@@ -52,11 +42,9 @@ export default {
     resetModal() {
       this.title = '';
       this.titleState = null;
-      this.description = '';
-      this.descriptionState = null;
     },
     toggleModal() {
-      this.$root.$emit('bv::toggle::modal', 'modal-add-board', '#btnToggle');
+      this.$bvModal.hide('modal-add-list');
     },
     handleSubmit() {
       this.$v.$touch();
@@ -65,14 +53,11 @@ export default {
         return;
       }
 
-      this.$store.dispatch(
-        'addBoard',
-        { title: this.title, description: this.description },
-      )
-        .then((newBoardId) => {
-          this.$router.push('/board/:id'.replace(':id', newBoardId));
-        });
-      this.toggleModal();
+      this.$store.commit('addList', { title: this.title, boardId: this.$route.params.id });
+
+      this.$nextTick(() => {
+        this.toggleModal();
+      });
     },
   },
   validations: {
